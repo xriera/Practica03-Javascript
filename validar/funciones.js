@@ -10,7 +10,7 @@ validarSoloLetras();
 validarSoloLetras1();
 validarSoloNumero();
 validarCorreo();
-
+isDate(ExpiryDate);
 
 
 
@@ -58,8 +58,13 @@ function validarCamposObli(formulario) {
     } else {
         return false;
     }
+    if (isDate(ExpiryDate) == true) {
+        cont++
+    } else {
+        return false;
+    }
     //alert (cont)
-    if (cont == 5) {
+    if (cont == 6) {
         return true;
     } else {
         return false
@@ -201,13 +206,13 @@ function isDate(ExpiryDate) {
             year;     // year 
     // date length should be 10 characters (no more no less) 
     if (ExpiryDate.length !== 10) {
-
+document.getElementById('mensajeFecha').innerHTML = 'Fecha Correcta';
         return false;
 
     }
 
     if (ExpiryDate.substring(2, 3) !== '/' || ExpiryDate.substring(5, 6) !== '/') {
-
+        document.getElementById('mensajeFecha').innerHTML = 'Verificar 01';
         return false;
     }
 
@@ -216,7 +221,7 @@ function isDate(ExpiryDate) {
     year = ExpiryDate.substring(6, 10) - 0;
 
     if (year < 1000 || year > 3000) {
-
+        document.getElementById('mensajeFecha').innerHTML = 'Verificar 1';
         return false;
     }
 
@@ -228,16 +233,18 @@ function isDate(ExpiryDate) {
     if (objDate.getFullYear() !== year ||
             objDate.getMonth() !== month ||
             objDate.getDate() !== day) {
-
+        document.getElementById('mensajeFecha').innerHTML = 'Verificar 1';
         return false;
     }
     // otherwise return true 
+ document.getElementById('mensajeFecha').innerHTML = 'Verificar fecha';
     fech = true;
+     document.getElementById('mensajeFecha').innerHTML = 'Verificar fecha111111';
     return true;
 }
 
 //-----------validar correo
-function validarCorreo() {
+/*function validarCorreo() {
     var cadena = document.getElementById('correo').value;
     var cont = 0;
     for (var i = 0; i < cadena.length; i++) {
@@ -260,14 +267,31 @@ function validarCorreo() {
 
     document.getElementById('salida4').innerHTML = 'Verificar correo2';
     return false;
+}*/
+function validarCorreo(){
+	var cadena = document.getElementById('correo').value;
+
+
+	if (cadena.indexOf("@est.ups.edu.ec", 0) <0){
+		document.getElementById('salida4').innerHTML = 'Correo elctrononico incorrecto';
+		return false;
+	} 
+        else{
+		document.getElementById('salida4').innerHTML = 'Correo Electronico Valido';
+		return true;
+	}
+
+
 }
+
 //-----------
-function mensajes(){
-    var fech= document.getElementById('born').value;
- 
-     if(!isDate(fech)){
-        document.getElementById('mensajeFecha').innerHTML='Fail Date';
-        va=false;
+function mensajes() {
+    var va = true;
+    var fech = document.getElementById('born').value;
+
+    if (!isDate(fech)) {
+        document.getElementById('mensajeFecha').innerHTML = 'Fail Date';
+        va = false;
     }
     return va;
 }
