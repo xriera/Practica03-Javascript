@@ -261,4 +261,13 @@ function validarCorreo() {
     document.getElementById('salida4').innerHTML = 'Verificar correo2';
     return false;
 }
+//-----------
+function mensajes(){
+    var fech= document.getElementById('born').value;
  
+     if(!isDate(fech)){
+        document.getElementById('mensajeFecha').innerHTML='Fail Date';
+        va=false;
+    }
+    return va;
+}
