@@ -4,57 +4,59 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<!DOCTYPE html>
+<html lang="es">
+
     <head>
-        <title>Gestion de Registro </title>
-        <meta charset="UTF-8">
-        <link href="estilos.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="../../JavaScript/validaciones.js"></script>
+        <meta charset="utf-8">
+        <title>Formulario</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" >
+        <script language="JavaScript" type="text/javascript" src="funciones.js"></script>
+
     </head>
+
     <body>
-        <div id="divForm">
+        <div id="fondo">
+            <form id="formulario" name="formulario" method="post" onsubmit="return validarCamposObli(this);"action="resultados.php" >
 
-            <h1>Managment System</h1>
+                <h1>Fomulario | Validacion</h1>
+                <label>Cedula:</label>
+                <input type="text" id="cedula" value=""  onblur="validarCedula();" >*&nbsp; &nbsp;
+                <label id="salida"></label>
+                <br>
+                <label>Nombres:</label>
+                <input type="text" id="nombre" value= ""  onblur="validarSoloLetras();" > *&nbsp; &nbsp;
+                <label id="salida1"></label>
+                <br>
+                <label>Apellidos:</label>
+                <input type="text" id="apellido" value="" onblur="validarSoloLetras1();" name="cedula_id">*&nbsp; &nbsp;
+                <label id="salida2"></label>
+                <br>
+                <label>Direccion:</label>
+                <input type="text" id="direccion" value="" onblur="validarSoloLetras1();" name="cedula_id">*&nbsp; &nbsp;
+                <label id="salida2"></label>
+                <br>
+                <label>Telefono</label>
+                <input type="tel" id="telefono" value="" onblur="validarSoloNumero();">*&nbsp; &nbsp;
+                <label id="salida3"></label>
+                <br>
+                
+                <label>Fecha de nacimiento:</label>
+                <input type="text" id="nombre" value= ""  onblur="isDate(this);" > *&nbsp; &nbsp;
+                <label id="salida5"></label>
+                <br>
+                <label>Correo:</label>
+                <input type="text" id="correo" value="" onblur="validarCorreo();" >*&nbsp; &nbsp;<label id="salida4"></label>
+                <br>
+                
 
-            <form method="POST" name="formulario" onsubmit="return validarCampos()" action="../controladores/crear_usuario.php">
+                <input type="submit" id="enviar" value="Eviar" />
+                <input type="button" id="cancelar" value="Cancelar" />
 
-                <label id="cedl" for="ced">I.D.: </label>
-                <input type="text" id="ced" name="ced" onblur="validarCedula()" />
-                <div id="mensajeCedula" class="error"></div>
-                <br>
-                <label id="namel" for="name">Name: </label>
-                <input type="text" id="name" name="name"  />
-                <div id="mensajeNombre" class="error"></div>
-                <br>
-                <label id="l_namel" for="l_name">Last Name: </label>
-                <input type="text" id="l_name" name="l_name"/>
-                <div id="mensajeApellido" class="error"></div>
-                <br>
-                <label id="addressl" for="address">Address: </label>
-                <input type="text" id="address" name="address" />
-                <div id="mensajeDir" class="error"></div>
-                <br>
-                <label  id="telfl" for="telf">Phone: </label>
-                <input type="text" id="telf" name="telf"  />
-                <div id="mensajeTelf" class="error"></div>
-                <br>
-                <label id="emaill" for="email">E-mail: </label>
-                <input type="text" id="email" name="email" onblur="validarCorreo()" />
-                <div id="mensajeMail" class="error"></div>
-                <br>
-                <label id="psswl" for="psswl">Password: </label>
-                <input type="password" id="pssw" name="pssw" />
-                <div id="mensajeContra" class="error"></div>
-                <br>
-                <label id="bornl" for="born">Brithdate: </label>
-                <input type="text" id="born" name="born" onblur="isDate(this);"/>
-                <div id="mensajeFecha" class="error"></div>
-                <br>
-
-                <button method="POST" type="submit">Crear</button>
+                       <div id="mensaje"></div>
 
             </form>
-            <a href="../../admin/vista/usuario/index.php">List</a>
-        </div>
+        </div>	
+
     </body>
 </html>
