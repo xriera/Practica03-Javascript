@@ -124,14 +124,8 @@ function validarCedula() {
 }
 
 function validarSoloLetras() {
-
     var valor = document.getElementById('nombre').value.trim();
-
-
-
     for (var i = 0; i < valor.length; i++) {
-
-
         var texto = valor[i] / valor[i];
 
         if (texto == 1) {
@@ -142,7 +136,7 @@ function validarSoloLetras() {
             document.getElementById('salida1').innerHTML = 'nombre incorrecto';
             return false;
             breack;
-        } else {
+        } else {c
             document.getElementById('salida1').innerHTML = 'Nombre correcto';
             return true;
         }
@@ -151,15 +145,8 @@ function validarSoloLetras() {
 
 //----------validar 
 function validarSoloLetras1() {
-
     var valor = document.getElementById('apellido').value.trim();
-
-
-
-
     for (var i = 0; i < valor.length; i++) {
-
-
         var texto = valor[i] / valor[i];
 
         if (texto == 1) {

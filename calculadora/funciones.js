@@ -140,6 +140,5 @@ function resetear(){
   resetear();
   resultado.textContent = res;
 }
-
 }
 
